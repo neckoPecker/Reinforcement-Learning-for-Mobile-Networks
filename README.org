@@ -1,0 +1,14 @@
+* Reinforcement-Learning-For-Mobile-Networks
+** About the research
+From May 2024 to August 2024, I had the pleasure to partake in
+undergraduate research for ways to ways to apply Reinforcement
+Learning (RL) to solve a problem. I chose mobile networks because
+there were only a handful of researchers who RL to mobile networks,
+mostly through a simulation. This repository reflects my understanding
+of their works and my own tested experiences.
+
+** What this repository contains
+
++ The research poster I presented
++ Works that I used to learn/cite in my work
++ Some coding examples using Python
