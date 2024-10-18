@@ -7,8 +7,16 @@ there were only a handful of researchers who RL to mobile networks,
 mostly through a simulation. This repository reflects my understanding
 of their works and my own tested experiences.
 
-** What this repository contains
+** What this contains
 
 + The research poster I presented
 + Works that I used to learn/cite in my work
 + Some coding examples using Python
+
+** My poster
+This poster was presented for the 2024 LURA and USRA Research at
+Lassonde, which was a paid summer program for undergraduate students
+to conduct research with a professor. The following contains the
+results of my 4-month endeavor:
+
+[[./Reinforcement Learning for Simulated Wireless Mobile Network Management.png]]
