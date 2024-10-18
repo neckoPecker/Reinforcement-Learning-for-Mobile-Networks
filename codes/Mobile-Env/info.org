@@ -1,0 +1,161 @@
+#+title:	Information
+
+* Models and hyperparameters <2024-08-07 Wed>
+In order to measure the performance of the algorithsm, we use the
+expected reward of the model (generously calculated for us with stable
+baselines 3). The following contains details about each model when
+trained on mobile env. After PPO_1, we adjust the hyperparameters to
+try to outperform the mean reward of PPO_1. The command we run is:
+
+#+begin_src bash
+  python -m rl_zoo3.train --algo ppo --env mobile-large-central-v0 --n-jobs 8 -P -tb TEST-tensorboard-logs
+#+end_src
+
+
+** PPO_1
+These are the default hyperparameters set by stable baselines 3. Taken
+from the docs:
+https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html
+
+*Set Hyperparameters:*
+#+begin_src text
+  mobile-small-central-v0:
+    policy: 'MlpPolicy'
+    n_envs: 1
+    n_timesteps: 100000
+    # Hyperparameters
+    clip_range_vf: 0.0
+    clip_range: 0.2
+    ent_coef: 0.0
+  	batch_size: 64
+  	gae_lambda: 0.95
+  	n_steps: 2048
+  	learning_rate: 0.0003
+  	n_epochs: 10
+  	max_grad_norm: 0.5
+  	vf_coef: 0.5
+  	normalize_advantage: True
+#+end_src
+
+*Expected Reward:* -13.13
+
+** PPO_2
+In this model, I changed the batch size to 16 instead of 32. This
+seems to have to have improved things a little bit, although had
+increased training time by about 34%.
+
+*Set Hyperparameters:*
+#+begin_src text
+  mobile-small-central-v0:
+    policy: 'MlpPolicy'
+    n_envs: 1
+    n_timesteps: 100000
+    # Hyperparameters
+    clip_range_vf: 0.0
+    clip_range: 0.2
+    ent_coef: 0.0
+    batch_size: 16
+    gae_lambda: 0.95
+    n_steps: 2048
+    learning_rate: 0.0003
+    n_epochs: 10
+    max_grad_norm: 0.5
+    vf_coef: 0.5
+    normalize_advantage: True
+#+end_src
+
+*Expected Reward: -8.1961
+
+** PPO_3
+In this model, I further reduced the batch size to 8. When compared to
+PPO_2, training time is about 1.31% faster, an gave expected reward
+worse than the default. For now, we keep batch size to 16.
+
+*Set Hyperparameters:*
+#+begin_src text
+  mobile-small-central-v0:
+    policy: 'MlpPolicy'
+    n_envs: 1
+    n_timesteps: 100000
+    # Hyperparameters
+    clip_range_vf: 0.0
+    clip_range: 0.2
+    ent_coef: 0.0
+    batch_size: 8
+    gae_lambda: 0.95
+    n_steps: 2048
+    learning_rate: 0.0003
+    n_epochs: 10
+    max_grad_norm: 0.5
+    vf_coef: 0.5
+    normalize_advantage: True
+#+end_src
+
+*Expected Reward:* -13.5246
+
+** PPO_4
+For this model, we modified =n_epochs= to be 15 instead of 10. The model
+took more time to train, while having less mean reward.
+
+*Set Hyperparameters:*
+#+begin_src text
+  mobile-small-central-v0:
+    policy: 'MlpPolicy'
+    n_envs: 1
+    n_timesteps: 100000
+    # Hyperparameters
+    clip_range_vf: 0.0
+    clip_range: 0.2
+    ent_coef: 0.0
+    batch_size: 16
+    gae_lambda: 0.95
+    n_steps: 2048
+    learning_rate: 0.0003
+    n_epochs: 15
+    max_grad_norm: 0.5
+    vf_coef: 0.5
+    normalize_advantage: True
+#+end_src
+
+*Expected reward:* -16.6915
+
+** PPO_5
+Faster than PPO_4, but less reward as well. All we did was modify
+=n_epochs= to 11.
+
+** PPO_6
+Changed =n_epochs= to 5. Yield is not great...keeping to default value
+of 10 for now.
+
+** PPO_7
+Changed =gae_lambda= to 0.70 (it was 0.95 before). Results seem to
+compete with PPO_2...looks promising. Thus, will experiment more with
+this hyperparameter.
+
+** PPO_8
+Changed =gae_lambda= to 0.0. Results beat PPO_2. Thus, PPO_8 is now our
+new benchmark.
+
+** PPO_9
+Changed =gae_lambda= to 0.25. Results are worse than PPO_8, so I'm
+keeping the value to 0.0.
+
+** PPO_10
+Changed =learning_rate= to 0.0001, instead of 0.0003. Not good...
+
+** PPO_11
+0.0005
+
+** PPO 12
+0.0010
+
+** PPO 13
+ent_coef 0.002
+learning rate 0.0003
+
+** PPO 14
+ent_coef 0.20
+
+** PPO 15
+ent_coef 0.0
+n_steps 4096

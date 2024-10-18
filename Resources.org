@@ -1,0 +1,29 @@
+* Resources
+** About
+In this page, I do my best to reference all (or at least most) of the
+resources that helped me in understanding Reinforcement Learning (RL),
+as well as sources that were relevant to my research. Hopefully for
+those who are interested in Reinforcement Learning, you can apply to
+them as well.
+
+** Learning Resources
+
+What isn't listed here is the amount of StackOverflow questions I had
+when coding these...
+
++ [[https://spinningup.openai.com/en/latest/][OpenAI Spinning Up (Practical Beginners Guide to RL)]]
++ [[https://gymnasium.farama.org/index.html][Farama Foundation Gymnasium (Library used for setting up RL Environments)]]
++ [[https://www.davidsilver.uk/teaching/][David Silver's Courses on RL]]
++ [[https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf][Reinforcement Learning: An Introduction - Sutton & Barto (A textbook)]]
+
+** Works Used
+
+These are properly cited in IEEE citation in the poster
+
++ [[https://ieeexplore.ieee.org/document/9318091][Coordinated Multi-Point Transmission in 5G and Beyond Heterogeneous Networks ...]]
++ [[https://ieeexplore.ieee.org/document/8524514][Energy Efficient Co-Ordinated Multi-Point Joint Transmission(CoMP-JT) for LTE...]]
++ [[https://ieeexplore.ieee.org/abstract/document/10293486][Downlink Performance of Coordinated Multipoint (CoMP) in Next Generation Hete...]]
++ [[https://www.jmlr.org/papers/v22/20-1364.html][Stable-Baselines3: Reliable Reinforcement Learning Implementations]]
++ [[https://ris.uni-paderborn.de/download/30236/30237/author_version.pdf]] (mobile-env)
+  + Github: https://github.com/stefanbschneider/mobile-env?tab=readme-ov-file
++ [[https://ieeexplore.ieee.org/document/10198677][Multi-Agent Deep Reinforcement Learning for Coordinated Multipoint in Mobile ...]]
